@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ScrimInsetsView">
+        <attr name="insetForeground" format="reference|color" />
+    </declare-styleable>
+
+    <declare-styleable name="BorderedRoundedCornersImageView">
+        <attr name="corner_radius" format="dimension" />
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+        <attr name="round_background" format="boolean" />
+        <attr name="round_image" format="boolean" />
+        <attr name="background_color" format="color|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="FloatLabelLayout">
+        <attr name="floatLabelTextAppearance" format="reference" />
+        <attr name="floatLabelPaddingLeft" format="reference|dimension" />
+        <attr name="floatLabelPaddingRight" format="reference|dimension" />
+        <attr name="floatLabelPaddingTop" format="reference|dimension" />
+        <attr name="floatLabelPaddingBottom" format="reference|dimension" />
+        <!-- The hint to display in the floating label -->
+        <attr name="floatLabelHint" format="reference|string" />
+    </declare-styleable>
+    <attr name="themedTextColorPrimary" format="reference" />
+    <attr name="themedTextColorSecondary" format="reference" />
+    <attr name="themedTextColorPrimaryInverse" format="reference" />
+    <attr name="themedTextColorSecondaryInverse" format="reference" />
+
+
+    <attr name="textSelectColor" format="color|reference" />
+    <attr name="titleColor" format="color|reference" />
+    <attr name="subTitleColor" format="color|reference" />
+    <attr name="toolbarTheme" format="reference" />
+    <attr name="toolbarPopupTheme" format="reference" />
+</resources>

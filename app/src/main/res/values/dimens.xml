@@ -1,0 +1,25 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="drawer_side_menu_width">304dp</dimen>
+
+
+    <dimen name="weibo_list_user_name">14dip</dimen>
+    <dimen name="weibo_user_img">40dip</dimen>
+    <dimen name="weibo_list_status_source">10dip</dimen>
+    <dimen name="weibo_list_margin_right">15dip</dimen>
+
+
+    <dimen name="weibo_image_padding">3dip</dimen>
+    <dimen name="weibo_image_dimen">50dip</dimen>
+
+    <dimen name="cardview_margin_bottom">8dip</dimen>
+    <dimen name="cardview_padding">4dip</dimen>
+    <dimen name="cardview_default_elevation">2dip</dimen>
+    <dimen name="cardview_default_radius">2dip</dimen>
+
+    <dimen name="bitmap_max_height">200dip</dimen>
+    <dimen name="bitmap_max_width">160dip</dimen>
+
+</resources>

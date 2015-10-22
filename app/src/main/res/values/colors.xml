@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- color for light theme-->
+    <color name="colorPrimary">#FF9800</color>
+    <color name="colorPrimaryDark">#F57C00</color>
+    <color name="colorPrimaryLight">#FFE0B2</color>
+    <color name="colorAccent">#FF5252</color>
+    <color name="lightTextPrimary">#000000</color>
+    <!-- color for dark theme-->
+    <color name="colorPrimaryForDark">#ff343434</color>
+    <color name="colorPrimaryDarkForDark">#ff444444</color>
+    <color name="colorPrimaryLightForDark">#ff444444</color>
+    <color name="colorAccentForDark">#ff444444</color>
+    <color name="darkTextPrimary">#77ff0000</color>
+
+
+    <color name="weibo_list_user_name">#000000</color>
+    <color name="weibo_list_status_source">#747474</color>
+    <color name="weibo_list_divider">#747474</color>
+
+    <color name="list_item_unread">#ff222222</color>
+    <color name="list_item_read">#ffb7b7b7</color>
+
+    <color name="statusColor">#11659a</color>
+    <color name="toolbarColor">#1473af</color>
+    <color name="textColor" >#474747</color>
+</resources>

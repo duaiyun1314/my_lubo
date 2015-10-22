@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/status_img_multi"
+    android:layout_width="100dip"
+    android:layout_height="100dip"
+    tools:context=".MainActivity">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/weibo_img_0"
+        style="@style/WeiboImage"
+        custom:placeholderImage="@drawable/ic_launcher"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/weibo_img_1"
+        style="@style/WeiboImage"
+        custom:placeholderImage="@drawable/ic_launcher"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/weibo_img_2"
+        style="@style/WeiboImage"
+        custom:placeholderImage="@drawable/ic_launcher"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/weibo_img_3"
+        style="@style/WeiboImage"
+        custom:placeholderImage="@drawable/ic_launcher"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/weibo_img_0"
+        android:layout_marginTop="@dimen/weibo_image_padding" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/weibo_img_4"
+        style="@style/WeiboImage"
+        custom:placeholderImage="@drawable/ic_launcher"
+        android:layout_below="@id/weibo_img_0"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/weibo_image_padding" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/weibo_img_5"
+        style="@style/WeiboImage"
+        custom:placeholderImage="@drawable/ic_launcher"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/weibo_img_0"
+        android:layout_marginTop="@dimen/weibo_image_padding" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/weibo_img_6"
+        style="@style/WeiboImage"
+        custom:placeholderImage="@drawable/ic_launcher"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/weibo_img_7"
+        style="@style/WeiboImage"
+        custom:placeholderImage="@drawable/ic_launcher"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/weibo_img_8"
+        style="@style/WeiboImage"
+        custom:placeholderImage="@drawable/ic_launcher"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true" />
+</RelativeLayout>

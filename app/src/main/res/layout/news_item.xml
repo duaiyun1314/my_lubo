@@ -1,0 +1,90 @@
+<!-- A DrawerLayout is intended to be used as the top-level content view using match_parent for both width and height to consume the full space available. -->
+<com.example.MyWeibo.ui.NewsItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="2dip">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/news_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:textColor="?attr/titleColor"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/news_time"
+                style="@style/SubText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/news_title"
+                android:layout_toLeftOf="@+id/news_comments"
+                android:layout_toStartOf="@+id/news_comments" />
+
+            <TextView
+                android:id="@+id/news_comments"
+                style="@style/SubText"
+                android:layout_width="52sp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/news_title"
+                android:layout_toLeftOf="@+id/news_views"
+                android:layout_toStartOf="@+id/news_views"
+                android:drawableLeft="@mipmap/ic_comments"
+                android:drawablePadding="2dp"
+                android:gravity="center"
+                android:paddingRight="2dp" />
+
+            <TextView
+                android:id="@+id/news_views"
+                style="@style/SubText"
+                android:layout_width="58sp"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/news_title"
+                android:layout_alignRight="@+id/news_title"
+                android:layout_below="@+id/news_title"
+                android:drawableLeft="@mipmap/ic_views"
+                android:drawablePadding="2dp"
+                android:gravity="center" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/news_time"
+                android:orientation="horizontal"
+                android:paddingTop="4dp">
+
+                <ImageView
+                    android:id="@+id/news_image_small"
+                    android:layout_width="60sp"
+                    android:layout_height="60sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="5dp"
+                    android:scaleType="fitXY" />
+
+                <TextView
+                    android:id="@+id/news_summary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="4"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</com.example.MyWeibo.ui.NewsItemView>

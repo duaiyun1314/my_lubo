@@ -1,0 +1,40 @@
+<resources>
+
+
+    <style name="WeiboTextAppearence">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">@dimen/weibo_list_margin_right</item>
+    </style>
+
+    <style name="WeiboImage">
+        <item name="android:layout_width">@dimen/weibo_image_dimen</item>
+        <item name="android:layout_height">@dimen/weibo_image_dimen</item>
+    </style>
+    <style name="BaseCardView">
+        <!--<item name="cardBackgroundColor">?arrt/themedCardBackgroundColor</item>-->
+        <item name="cardUseCompatPadding">true</item>
+        <item name="cardPreventCornerOverlap">false</item>
+        <item name="cardElevation">@dimen/cardview_default_elevation</item>
+        <item name="cardCornerRadius">@dimen/cardview_default_radius</item>
+    </style>
+    <style name="AppCardView" parent="BaseCardView">
+        <item name="android:foreground">@drawable/abc_item_background_holo_light</item>
+    </style>
+
+    <style name="TextAppearance.Lubo.FloatLabel" parent="android:TextAppearance.Small">
+        <item name="android:textColor">#ff00ff</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="textAppearanceContentNormal">
+        <item name="android:textColor">#ff0000</item>
+    </style>
+
+    <style name="SubText">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">?subTitleColor</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+</resources>
