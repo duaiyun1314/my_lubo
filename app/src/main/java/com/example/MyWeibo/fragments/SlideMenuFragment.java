@@ -55,7 +55,7 @@ public class SlideMenuFragment extends BaseFragment implements AdapterView.OnIte
         manager.registerFragment("全部资讯", new AllNewsFragment());
         manager.registerFragment("人气推荐", new HotNewsListFragment());
         manager.registerFragment("精彩评论", new HotComentFragment());
-        manager.registerFragment("资讯主题", new DiscoveryFragment());
+        manager.registerFragment("资讯主题", new SubscribeHostFragment());
         manager.registerFragment("收藏列表", new DiscoveryFragment());
         manager.registerFragment("偏好设置", new DiscoveryFragment());
     }
