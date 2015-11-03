@@ -23,7 +23,7 @@ public abstract class BaseListFragment<DataProvider extends ListDataProvider, Pr
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         if (processer == null) {
-            processer = createProcesser(getProvider());
+            processer = createProcesser();
         }
         processer.setActivity((AppCompatActivity) getActivity());
     }
@@ -42,7 +42,7 @@ public abstract class BaseListFragment<DataProvider extends ListDataProvider, Pr
         processer.loadData(true);
     }
 
-    protected abstract Processer createProcesser(DataProvider provider);
+    protected abstract Processer createProcesser();
 
     protected abstract DataProvider getProvider();
 

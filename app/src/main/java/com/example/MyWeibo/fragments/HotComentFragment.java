@@ -9,8 +9,8 @@ import com.example.MyWeibo.processers.BaseListProcesser;
  */
 public class HotComentFragment extends BaseListFragment<NetHotCommentDataProvider, BaseListProcesser<NetHotCommentDataProvider>> {
     @Override
-    protected BaseListProcesser createProcesser(NetHotCommentDataProvider provider) {
-        return new BaseListProcesser(provider);
+    protected BaseListProcesser createProcesser() {
+        return new BaseListProcesser(getProvider());
     }
 
     @Override

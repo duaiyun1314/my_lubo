@@ -8,7 +8,7 @@ import com.example.MyWeibo.processers.NewsListProcesser;
  */
 public abstract class BaseNewsListFragment<Provider extends BaseNewsDataProvider> extends BaseListFragment<Provider, NewsListProcesser<Provider>> {
     @Override
-    protected NewsListProcesser<Provider> createProcesser(Provider provider) {
-        return new NewsListProcesser<>(provider);
+    protected NewsListProcesser<Provider> createProcesser() {
+        return new NewsListProcesser<>(getProvider());
     }
 }

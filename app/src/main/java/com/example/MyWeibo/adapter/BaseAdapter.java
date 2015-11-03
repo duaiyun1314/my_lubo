@@ -28,7 +28,7 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
 
     @Override
     public int getCount() {
-        return items.size();
+        return items == null ? 0 : items.size();
     }
 
     @Override
