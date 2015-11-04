@@ -27,6 +27,7 @@ public class TopicItemDao extends AbstractDao<TopicItem, Void> {
         public final static Property TopicId = new Property(1, String.class, "topicId", false, "TOPIC_ID");
         public final static Property TopicName = new Property(2, String.class, "topicName", false, "TOPIC_NAME");
         public final static Property TopicImage = new Property(3, String.class, "topicImage", false, "TOPIC_IMAGE");
+        public final static Property Latter = new Property(4, String.class, "latter", false, "LATTER");
     };
 
 
@@ -45,7 +46,8 @@ public class TopicItemDao extends AbstractDao<TopicItem, Void> {
                 "'SAVED' INTEGER," + // 0: saved
                 "'TOPIC_ID' TEXT," + // 1: topicId
                 "'TOPIC_NAME' TEXT," + // 2: topicName
-                "'TOPIC_IMAGE' TEXT);"); // 3: topicImage
+                "'TOPIC_IMAGE' TEXT," + // 3: topicImage
+                "'LATTER' TEXT);"); // 4: latter
     }
 
     /** Drops the underlying database table. */
@@ -78,6 +80,11 @@ public class TopicItemDao extends AbstractDao<TopicItem, Void> {
         if (topicImage != null) {
             stmt.bindString(4, topicImage);
         }
+ 
+        String latter = entity.getLatter();
+        if (latter != null) {
+            stmt.bindString(5, latter);
+        }
     }
 
     /** @inheritdoc */
@@ -93,7 +100,8 @@ public class TopicItemDao extends AbstractDao<TopicItem, Void> {
             cursor.isNull(offset + 0) ? null : cursor.getShort(offset + 0) != 0, // saved
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // topicId
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // topicName
-            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3) // topicImage
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // topicImage
+            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4) // latter
         );
         return entity;
     }
@@ -105,6 +113,7 @@ public class TopicItemDao extends AbstractDao<TopicItem, Void> {
         entity.setTopicId(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
         entity.setTopicName(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
         entity.setTopicImage(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
+        entity.setLatter(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
      }
     
     /** @inheritdoc */

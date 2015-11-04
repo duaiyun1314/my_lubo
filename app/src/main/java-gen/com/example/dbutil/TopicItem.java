@@ -10,15 +10,17 @@ public class TopicItem {
     private String topicId;
     private String topicName;
     private String topicImage;
+    private String latter;
 
     public TopicItem() {
     }
 
-    public TopicItem(Boolean saved, String topicId, String topicName, String topicImage) {
+    public TopicItem(Boolean saved, String topicId, String topicName, String topicImage, String latter) {
         this.saved = saved;
         this.topicId = topicId;
         this.topicName = topicName;
         this.topicImage = topicImage;
+        this.latter = latter;
     }
 
     public Boolean getSaved() {
@@ -51,6 +53,14 @@ public class TopicItem {
 
     public void setTopicImage(String topicImage) {
         this.topicImage = topicImage;
+    }
+
+    public String getLatter() {
+        return latter;
+    }
+
+    public void setLatter(String latter) {
+        this.latter = latter;
     }
 
 }

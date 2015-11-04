@@ -3,6 +3,7 @@ package com.example.MyWeibo;
 import android.app.Application;
 import android.content.Context;
 
+import com.example.dbutil.DaoMaster;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
 
@@ -11,6 +12,7 @@ import com.facebook.drawee.backends.pipeline.Fresco;
  */
 public class LuBoApplication extends Application {
     private static LuBoApplication mInstance;
+    private DaoMaster.DevOpenHelper mHelper;
 
     public static LuBoApplication from(Context context) {
         return (LuBoApplication) context.getApplicationContext();
@@ -25,6 +27,15 @@ public class LuBoApplication extends Application {
         super.onCreate();
         mInstance = this;
         Fresco.initialize(this);
+        initDb();
 
+    }
+
+    private void initDb() {
+        mHelper = new DaoMaster.DevOpenHelper(this, "lubo", null);
+    }
+
+    public DaoMaster.DevOpenHelper getHelper() {
+        return mHelper;
     }
 }

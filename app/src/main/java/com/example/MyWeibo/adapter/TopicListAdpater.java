@@ -5,9 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.MyWeibo.model.TopicItem;
+import com.example.dbutil.TopicItem;
 
 import java.util.List;
+
 
 /**
  * Created by wanglu on 15/11/3.

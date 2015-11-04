@@ -8,7 +8,7 @@ public class DaoGeneratorUtil {
     public static void main(String[] args) throws Exception {
         Schema schema = new Schema(1, "com.example.dbutil");
         addEntity(schema);
-        new DaoGenerator().generateAll(schema, "/Users/wanglu/myproject/LuBo/app/src/main/java-gen");
+        new DaoGenerator().generateAll(schema, "D:\\work\\myproject\\my_lubo\\app\\src\\main\\java-gen");
 
     }
 
@@ -20,5 +20,6 @@ public class DaoGeneratorUtil {
         topicItem.addStringProperty("topicId");
         topicItem.addStringProperty("topicName");
         topicItem.addStringProperty("topicImage");
+        topicItem.addStringProperty("latter");
     }
 }
