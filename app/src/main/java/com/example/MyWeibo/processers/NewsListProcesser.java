@@ -5,8 +5,8 @@ import com.example.MyWeibo.data.ListDataProvider;
 /**
  * 有menu的区别
  */
-public class NewsListProcesser<DataProvider extends ListDataProvider> extends BaseListProcesser<DataProvider> {
-    public NewsListProcesser(DataProvider provider) {
+public class NewsListProcesser extends BaseListProcesser {
+    public NewsListProcesser(ListDataProvider provider) {
         super(provider);
     }
 }

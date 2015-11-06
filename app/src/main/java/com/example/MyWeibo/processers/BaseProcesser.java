@@ -8,7 +8,7 @@ import com.example.MyWeibo.data.BaseDataProvider;
 /**
  * Created by wanglu on 15/6/16.
  */
-public interface BaseProcesser<DataProvider extends BaseDataProvider> {
+public interface BaseProcesser<DataProvider extends BaseDataProvider,T extends  Object> {
     void assumeView(View view);
 
     AppCompatActivity getActivity();

@@ -1,15 +1,14 @@
 package com.example.MyWeibo.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.MyWeibo.R;
 import com.example.MyWeibo.model.NewsItem;
 import com.example.MyWeibo.ui.NewsItemView;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 
 import java.util.ArrayList;
 
@@ -18,8 +17,16 @@ import java.util.ArrayList;
  */
 public class NewsListAdapter extends BaseAdapter {
 
+    DisplayImageOptions options;
+
     public NewsListAdapter(Context context, ArrayList<NewsItem> items) {
         super(context, items);
+        options = new DisplayImageOptions.Builder()
+                .cacheInMemory(true)
+                .cacheOnDisk(true)
+                .showImageOnLoading(R.drawable.imagehoder)
+                .showImageOnFail(R.drawable.imagehoder_error)
+                .build();
     }
 
     @Override
@@ -31,7 +38,7 @@ public class NewsListAdapter extends BaseAdapter {
             itemView = (NewsItemView) infater.inflate(R.layout.news_item, parent, false);
         }
         NewsItem item = (NewsItem) getDataSetItem(position);
-        itemView.showNews(item);
+        itemView.showNews(item, options);
         return itemView;
     }
 }

@@ -2,10 +2,10 @@ package com.example.MyWeibo.data;
 
 import android.app.Activity;
 
-public abstract class BaseDataProvider<T> {
+public abstract class BaseDataProvider {
 
     private Activity mActivity;
-    protected DataProviderCallback<T> callback;
+    protected DataProviderCallback callback;
 
     public BaseDataProvider(Activity activity) {
         mActivity = activity;
@@ -24,7 +24,7 @@ public abstract class BaseDataProvider<T> {
      */
     public abstract void loadData();
 
-    public void setDataProviderCallback(DataProviderCallback<T> callback) {
+    public void setDataProviderCallback(DataProviderCallback callback) {
         this.callback = callback;
     }
 }

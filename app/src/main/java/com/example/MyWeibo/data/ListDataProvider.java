@@ -9,8 +9,8 @@ import java.util.List;
 /**
  * Created by wanglu on 15/6/16.
  */
-public abstract class ListDataProvider<DataType, DataAdapter extends BaseAdapter<DataType>> extends BaseDataProvider<List<DataType>> {
-    private DataAdapter adapter;
+public abstract class ListDataProvider extends BaseDataProvider {
+    private BaseAdapter adapter;
     protected boolean hasCached;
     protected int pageSize;
     protected int minPageSize;
@@ -21,7 +21,7 @@ public abstract class ListDataProvider<DataType, DataAdapter extends BaseAdapter
         super(activity);
     }
 
-    public DataAdapter getAdapter() {
+    public BaseAdapter getAdapter() {
         if (adapter == null) {
             adapter = newAdapter();
         }
@@ -32,7 +32,7 @@ public abstract class ListDataProvider<DataType, DataAdapter extends BaseAdapter
 
     public abstract String getTypeName();
 
-    protected abstract DataAdapter newAdapter();
+    protected abstract BaseAdapter newAdapter();
 
     /**
      * 第一次加载网络数据

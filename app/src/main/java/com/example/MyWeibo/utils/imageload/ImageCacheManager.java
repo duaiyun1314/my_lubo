@@ -42,7 +42,7 @@ public class ImageCacheManager implements ImageLoader.ImageCache {
                     //Log.i("wanglu1", "fromDiskCache:" + url);
                 }
             } else {
-               // Log.i("wanglu1", "fromLruCache:" + url);
+                // Log.i("wanglu1", "fromLruCache:" + url);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -55,7 +55,7 @@ public class ImageCacheManager implements ImageLoader.ImageCache {
     public void putBitmap(String url, Bitmap bitmap) {
         String key = hashKeyForDisk(url);
         lruCache.put(url, bitmap);
-        /*try {
+        try {
             if (mDiskLruCache.get(key) == null) {
                 DiskLruCache.Editor editor = mDiskLruCache.edit(key);
                 if (editor != null) {
@@ -69,7 +69,7 @@ public class ImageCacheManager implements ImageLoader.ImageCache {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
 
     }
 
@@ -82,7 +82,7 @@ public class ImageCacheManager implements ImageLoader.ImageCache {
 
     private void initDiskCache(String folderName, int maxSize) {
         try {
-            mDiskLruCache = DiskLruCache.open(getDiskCacheDir(folderName), getVersionCode(), 1, maxSize);
+            mDiskLruCache = DiskLruCache.open(getDiskCacheDir(context, folderName), getVersionCode(), 1, maxSize);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -113,7 +113,7 @@ public class ImageCacheManager implements ImageLoader.ImageCache {
         }
     }
 
-    private File getDiskCacheDir(String folderName) {
+    public static File getDiskCacheDir(Context context, String folderName) {
         String cachePath;
         String state = Environment.getExternalStorageState();
         if (state.equals(Environment.MEDIA_MOUNTED)) {

@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.example.MyWeibo.R;
 import com.example.MyWeibo.model.NewsItem;
 import com.example.MyWeibo.utils.imageload.ImageLoaderUtil;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
  * Created by wanglu on 15/9/11.
@@ -45,12 +47,13 @@ public class NewsItemView extends CardView {
         this.news_image_small = (ImageView) findViewById(R.id.news_image_small);
     }
 
-    public void showNews(NewsItem item) {
+    public void showNews(NewsItem item, DisplayImageOptions options) {
         news_title.setText(item.getTitle());
         news_views.setText(item.getCounter());
         news_time.setText(item.getInputtime());
         news_comment.setText(item.getComments());
         news_summary.setText(item.getSummary());
-        ImageLoaderUtil.loadImage(item.getThumb(), news_image_small, R.drawable.imagehoder, R.drawable.imagehoder_error);
+        //ImageLoaderUtil.loadImage(item.getThumb(), news_image_small, R.drawable.imagehoder, R.drawable.imagehoder_error);
+        ImageLoader.getInstance().displayImage(item.getThumb(), news_image_small, options);
     }
 }

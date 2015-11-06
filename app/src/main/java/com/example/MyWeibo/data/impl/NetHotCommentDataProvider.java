@@ -19,7 +19,7 @@ import java.util.regex.Matcher;
 /**
  * Created by wanglu on 15/9/25.
  */
-public class NetHotCommentDataProvider extends ListDataProvider<HotCommentItem, HotContentListAdapter> {
+public class NetHotCommentDataProvider extends ListDataProvider {
     private int current;
     private ResponseHandlerInterface responseHandlerInterface = new BaseHttpResponseHanlder<List<HotCommentItem>>(new TypeToken<ResponseObject<List<HotCommentItem>>>() {
     }) {
