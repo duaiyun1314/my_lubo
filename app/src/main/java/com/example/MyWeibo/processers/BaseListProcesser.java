@@ -1,6 +1,7 @@
 package com.example.MyWeibo.processers;
 
 import android.graphics.Color;
+import android.media.Image;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -18,6 +19,8 @@ import com.example.MyWeibo.lib.kits.PrefKit;
 import com.example.MyWeibo.lib.kits.ToolKit;
 import com.example.MyWeibo.utils.imageload.ImageLoaderUtil;
 import com.example.MyWeibo.weight.PagedLoader;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.listener.PauseOnScrollListener;
 
 
 /**
@@ -50,6 +53,7 @@ public class BaseListProcesser<DataProvider extends ListDataProvider> extends Ba
             }
         };
         this.loader = PagedLoader.from(listView).setFinallyText("--END").setOnLoadListener(onLoadListener).builder();
+        this.loader.setOnScrollListener(new PauseOnScrollListener(ImageLoader.getInstance(), true, true));
         this.loader.setAdatper(this.mProvider.getAdapter());
     }
 

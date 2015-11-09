@@ -2,44 +2,68 @@ package com.example.MyWeibo.utils.imageload;
 
 import android.app.ActivityManager;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import android.widget.ImageView;
+import android.os.Environment;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.Volley;
 import com.example.MyWeibo.LuBoApplication;
+import com.nostra13.universalimageloader.cache.disc.impl.ext.LruDiskCache;
+import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
+import com.nostra13.universalimageloader.cache.memory.MemoryCache;
+import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+
+import java.io.File;
 
 /**
  * 图片加载类
  */
 public class ImageLoaderUtil {
     private static final int maxMemory = 1024 * 1024 * ((ActivityManager) LuBoApplication.getInstance().getSystemService(Context.ACTIVITY_SERVICE)).getMemoryClass() / 8;
-    private static final int maxDiskSize = 10 * 1024 * 1024;
-    private static ImageCacheManager imageCacheManager = new ImageCacheManager(maxMemory, "luboImages", maxDiskSize);
-    private static RequestQueue mRequestQueue = Volley.newRequestQueue(LuBoApplication.getInstance());
-    private static ImageLoader mImageLoader = new ImageLoader(mRequestQueue, imageCacheManager);
+    private static final int maxDiskSize = 50 * 1024 * 1024;
+    private static final int maxDiskCount = 8;
 
-    public static void loadImage(String url, ImageView imageView, int defaultResId, int errorResId) {
+    public static void initImageLoader(Context context) {
+        // This configuration tuning is custom. You can tune every option, you may tune some of them,
+        // or you can create default configuration by
+        //  ImageLoaderConfiguration.createDefault(this);
+        // method.
+        ImageLoaderConfiguration.Builder builder = new ImageLoaderConfiguration.Builder(context)
+                .threadPriority(Thread.NORM_PRIORITY - 2)
+                .denyCacheImageMultipleSizesInMemory()
+                .diskCache(getLruDiskCache(context))
+                .memoryCache(getMemoryCache())
+                .tasksProcessingOrder(QueueProcessingType.LIFO);
+        ImageLoaderConfiguration config = builder.build();
+        // Initialize ImageLoader w     ith configuration.
+        com.nostra13.universalimageloader.core.ImageLoader.getInstance().init(config);
+    }
 
-        if (url == null || TextUtils.isEmpty(url)) {
-            return;
-        } else {
-            //重置imageview
-            imageView.setImageResource(defaultResId);
+    private static LruDiskCache getLruDiskCache(Context context) {
+        LruDiskCache lruDiskCache = null;
+        try {
+            File file = getDiskCacheDir(context, "newsItemImages");
+            lruDiskCache = new LruDiskCache(file, null
+                    , new Md5FileNameGenerator(), maxDiskSize, maxDiskCount);
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
-        //url = "http://static.cnbetacdn.com/thumb/mini/article/2015/0911/2f1c0f82ce27242_100x100.jpg";
-        mImageLoader.get(url, ImageLoader.getImageListener(imageView, defaultResId, errorResId));
-
+        return lruDiskCache;
     }
 
-    public static void stop() {
-        mRequestQueue.stop();
+    private static MemoryCache getMemoryCache() {
+        MemoryCache memoryCache;
+        memoryCache = new LruMemoryCache(maxMemory);
+        return memoryCache;
     }
 
-    public static void start() {
-        mRequestQueue.start();
+    public static File getDiskCacheDir(Context context, String folderName) {
+        String cachePath;
+        String state = Environment.getExternalStorageState();
+        if (state.equals(Environment.MEDIA_MOUNTED)) {
+            cachePath = context.getExternalCacheDir().getAbsolutePath();
+        } else {
+            cachePath = context.getCacheDir().getAbsolutePath();
+        }
+        return new File(cachePath + File.separator + folderName);
     }
-
 }
